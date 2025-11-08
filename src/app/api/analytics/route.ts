@@ -4,21 +4,7 @@ import { prisma } from "@/lib/prisma";
 export async function GET(req: Request) {
   try {
 
-    const authorization = req.headers.get("Authorization");
-    if (!authorization) {
-      return NextResponse.json(
-        { error: "غير مصرح لك بالوصول" },
-        { status: 401 }
-      );
-    }
-
-    const apiKey = authorization.replace("Bearer ", "").trim();
-    if (apiKey !== process.env.NEXT_PUBLIC_API_KEY_ID) {
-      return NextResponse.json(
-        { error: "مفتاح API غير صالح" },
-        { status: 401 }
-      );
-    }
+   
 
     const userId = req.headers.get("X-User-ID") || new URL(req.url).searchParams.get("userId");
     

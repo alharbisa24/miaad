@@ -84,9 +84,7 @@ function SlotsCell({ form }: { form: Form }) {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/forms/slots`, {
         method: 'DELETE',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY_ID}`,
-        },
+          'Content-Type': 'application/json'        },
         body: JSON.stringify({
           slotId: slotId,
         }),
@@ -423,9 +421,7 @@ function ActionsCell({ form }: { form: Form }) {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/forms`, {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY_ID}`,
-        },
+          'Content-Type': 'application/json'        },
         body: JSON.stringify({
           formId: form.id,
           title: values.title
@@ -467,9 +463,7 @@ function ActionsCell({ form }: { form: Form }) {
       const response = await fetch(`/api/forms`, {
         method: 'DELETE',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY_ID}`,
-        },
+          'Content-Type': 'application/json'        },
         body: JSON.stringify({
           formId: form.id,
         }),

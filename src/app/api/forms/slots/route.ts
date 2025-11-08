@@ -3,21 +3,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function DELETE(req: Request) {
   try {
-    const authorization = req.headers.get("Authorization");
-    if (!authorization) {
-      return NextResponse.json(
-        { error: "غير مصرح لك بالوصول" },
-        { status: 401 }
-      );
-    }
-
-    const apiKey = authorization.replace("Bearer ", "").trim();
-    if (!apiKey.includes(process.env.NEXT_PUBLIC_API_KEY_ID || "")) {
-      return NextResponse.json(
-        { error: "مفتاح API غير صالح" },
-        { status: 401 }
-      );
-    }
+ 
 
     const body = await req.json();
     const { slotId } = body;

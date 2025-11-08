@@ -235,9 +235,7 @@ export default function AddFormPage() {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/forms`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY_ID}`,
-        },
+        headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
           title: values.title,
           url: urlKey,

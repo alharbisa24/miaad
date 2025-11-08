@@ -11,7 +11,6 @@ export default async function Page() {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/analytics`,
         {
         headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY_ID}`,
           'X-User-ID': session?.user?.id || ''
         },
         cache: 'no-store'

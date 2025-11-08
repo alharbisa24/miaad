@@ -34,20 +34,7 @@ interface Form {
 }
 export async function GET(req: Request) {
   try {
-    const authorization = req.headers.get("Authorization");
-    if (!authorization) {
-      return NextResponse.json(
-        { error: "Authorization header is required" },
-        { status: 401 }
-      );
-    }
-    const apiKey = authorization.replace("Bearer ", "").trim();
-    if (apiKey !== process.env.NEXT_PUBLIC_API_KEY_ID) {
-        return NextResponse.json(
-          { error: "Invalid API key" },
-          { status: 401 }
-        );
-      }
+  
 
       const userId = req.headers.get("X-User-ID") || new URL(req.url).searchParams.get("userId");
     
@@ -133,20 +120,7 @@ const FormSchema = z.object({
 
 export async function POST(req: Request) {
   try {
-    const authorization = req.headers.get("Authorization");
-    if (!authorization) {
-      return NextResponse.json(
-        { error: "Authorization header is required" },
-        { status: 401 }
-      );
-    }
-    const apiKey = authorization.replace("Bearer ", "").trim();
-    if (apiKey !== process.env.NEXT_PUBLIC_API_KEY_ID) {
-        return NextResponse.json(
-          { error: "invalid API key" },
-          { status: 401 }
-        );
-      }
+
     const body = await req.json();
     const data = FormSchema.parse(body);
     const existingForm = await prisma.form.findUnique({
@@ -210,21 +184,7 @@ const UpdateFormSchema = z.object({
   
   export async function PUT(req: Request) {
     try {
-      const authorization = req.headers.get("Authorization");
-      if (!authorization) {
-        return NextResponse.json(
-          { error: "Authorization header is required" },
-          { status: 401 }
-        );
-      }
-      
-      const apiKey = authorization.replace("Bearer ", "").trim();
-      if (apiKey !== process.env.NEXT_PUBLIC_API_KEY_ID) {
-        return NextResponse.json(
-          { error: "Invalid API key" },
-          { status: 401 }
-        );
-      }
+
   
   
       const body = await req.json();
@@ -303,21 +263,7 @@ const UpdateFormSchema = z.object({
   
   export async function DELETE(req: Request) {
     try {
-      const authorization = req.headers.get("Authorization");
-      if (!authorization) {
-        return NextResponse.json(
-          { error: "Authorization header is required" },
-          { status: 401 }
-        );
-      }
-      
-      const apiKey = authorization.replace("Bearer ", "").trim();
-      if (apiKey !== process.env.NEXT_PUBLIC_API_KEY_ID) {
-        return NextResponse.json(
-          { error: "Invalid API key" },
-          { status: 401 }
-        );
-      }
+    
   
 
   

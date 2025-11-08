@@ -25,8 +25,7 @@ async function getData(): Promise<Form[]> {
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/forms`, 
       {
         headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY_ID}`,
-          'X-User-ID': session.user.id
+         'X-User-ID': session.user.id
         },
         cache: 'no-store'
       }
