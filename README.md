@@ -100,7 +100,6 @@ Create a .env file in the root and add:
 
 ```bash 
 BETTER_AUTH_SECRET=your_secret_key_for_betterauth
-BETTER_AUTH_URL=your_website_url
 DATABASE_URL=your_mongodb_connection_string
 NEXT_PUBLIC_BASE_URL=your_website_url
 GOOGLE_CLIENT_ID=your_secret_google_client_id
