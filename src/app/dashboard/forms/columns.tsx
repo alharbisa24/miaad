@@ -9,7 +9,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, D
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, Clock, User, Mail, Phone, Loader2, Download } from "lucide-react"
+import { Calendar, Clock, User, Mail, Phone, Loader2 } from "lucide-react"
 import { Input } from "@/components/ui/input"
 
 import { z } from "zod"
@@ -405,7 +405,6 @@ function ActionsCell({ form }: { form: Form }) {
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isExporting, setIsExporting] = useState(false)
   
   const editForm = useForm<z.infer<typeof editFormSchema>>({
     resolver: zodResolver(editFormSchema),
